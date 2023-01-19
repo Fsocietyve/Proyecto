@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ComponenteInput from "./components/Input.js";
+import { 
+    Formulario, 
+    Label,  
+    ContenedorTerminos, 
+    ContenedorBotonCentrado, 
+    Boton,
+    MensajeExito,
+    MensajeError
+ } from "./elementos/Formulario";
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <main>
+
+            <Formulario action="">
+            <ComponenteInput />
+
+                
+
+
+                <ContenedorTerminos>
+                <Label>
+                    <input type="checkbox" name="terminos" id="terminos"/>
+                    Acepto los Terminos y Condiciones
+                </Label>
+                </ContenedorTerminos>
+                {false && <MensajeError>
+                    <p>
+                    <FontAwesomeIcon icon={faTriangleExclamation}/>
+                        <b>Error:</b>Por favor rellena el formulario adecuadamente.
+                    </p>
+                </MensajeError>}
+                <ContenedorBotonCentrado>
+                    <Boton type="submit">Enviar</Boton>
+                    <MensajeExito>Formulario enviado exitosamente</MensajeExito>
+                </ContenedorBotonCentrado>
+            </Formulario>
+        </main>
+
+    );
 }
 
 export default App;
